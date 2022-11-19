@@ -32,7 +32,7 @@ public class MicroprocessorControl {
         return new ModelAndView("microprocessor-form", "microprocessor", microprocessor);
     }
 
-    @PostMapping("/new")
+    @PostMapping("/save")
     public String saveNewMicroprocessor(@ModelAttribute("microprocessor") Microprocessor microprocessor) {
         service.saveMicroprocessor(microprocessor);
         return "redirect:/microprocessor/all";
@@ -43,12 +43,6 @@ public class MicroprocessorControl {
         model.addAttribute("action", "update");
         Microprocessor microprocessor = service.findMicroprocessor(id);
         return new ModelAndView("microprocessor-form", "microprocessor", microprocessor);
-    }
-
-    @PostMapping("/update/{id}")
-    public String updateMicroprocessorForm(@ModelAttribute("microprocessor") Microprocessor microprocessor) {
-        service.updateMicroprocessor(microprocessor);
-        return "redirect:/microprocessor/all";
     }
 
     @GetMapping("/delete/{id}")

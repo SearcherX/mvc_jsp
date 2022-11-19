@@ -16,18 +16,12 @@ public class MicroprocessorService {
     public List<Microprocessor> listAll() {
         return (List<Microprocessor>) repository.findAll();
     }
-    public Microprocessor saveMicroprocessor(Microprocessor microprocessor) {
-        return repository.save(microprocessor);
+    public void saveMicroprocessor(Microprocessor microprocessor) {
+        repository.save(microprocessor);
     }
 
     public Microprocessor findMicroprocessor(Integer id) {
-        Optional<Microprocessor> find = repository.findById(id);
-        return find.orElseThrow(IllegalArgumentException::new);
-    }
-
-    public void updateMicroprocessor(Microprocessor microprocessor) {
-        Optional<Microprocessor> updated = repository.findById(microprocessor.getId());
-        updated.ifPresent(microprocessor1 -> repository.save(microprocessor));
+        return repository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
     public void deleteMicroprocessorById(Integer id) {

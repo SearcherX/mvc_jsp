@@ -24,19 +24,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-3 bg-light">
-                <c:choose>
-                    <c:when test="${action == 'update'}">
-                        <spring:url
-                                value="${pageContext.request.contextPath}/microprocessor/update/${microprocessor.id}"
-                                var="actionPath"/>
-                    </c:when>
-                    <c:when test="${action == 'create'}">
-                        <spring:url value="${pageContext.request.contextPath}/microprocessor/new"
-                                    var="actionPath"/>
-                    </c:when>
-                </c:choose>
                 <form:form
-                        action="${actionPath}"
+                        action="${pageContext.request.contextPath}/microprocessor/save"
                         method="post" modelAttribute="microprocessor">
                     <div class="row">
                         <div class="col-12">
@@ -45,7 +34,7 @@
                                 <input type="text" class="form-control" id="model" name="model"
                                        placeholder="Название" required=""
                                 <c:if test="${action == 'update'}">
-                                    value='${microprocessor.model}'
+                                       value='${microprocessor.model}'
                                 </c:if>>
                             </div>
                         </div>
@@ -57,14 +46,14 @@
                                 <input type="text" class="form-control" id="dataBitDepth" name="dataBitDepth"
                                        placeholder="бит" required=""
                                 <c:if test="${action == 'update'}">
-                                    value='${microprocessor.dataBitDepth}'
+                                       value='${microprocessor.dataBitDepth}'
                                 </c:if>>
                                 <span class="input-group-text">адреса: </span>
                                 <input type="text" class="form-control" id="addressBitDepth"
                                        name="addressBitDepth"
                                        placeholder="бит" required=""
                                 <c:if test="${action == 'update'}">
-                                    value='${microprocessor.addressBitDepth}'
+                                       value='${microprocessor.addressBitDepth}'
                                 </c:if>>
                             </div>
                         </div>
@@ -74,7 +63,7 @@
                             <input type="text" class="form-control" id="clockSpeeds" name="clockSpeeds"
                                    placeholder="МГц" required=""
                             <c:if test="${action == 'update'}">
-                                value='${microprocessor.getClockSpeedsStr()}'
+                                   value='${microprocessor.getClockSpeedsStr()}'
                             </c:if>>
                         </div>
 
@@ -83,7 +72,7 @@
                             <input type="text" class="form-control" id="addressSpaces" name="addressSpaces"
                                    placeholder="байт" required=""
                             <c:if test="${action == 'update'}">
-                                value='${microprocessor.addressSpaces}'
+                                   value='${microprocessor.addressSpaces}'
                             </c:if>>
                         </div>
 
@@ -93,7 +82,7 @@
                                    name="numberOfCommands"
                                    placeholder="количество"
                             <c:if test="${action == 'update'}">
-                                value='${microprocessor.numberOfCommands}'
+                                   value='${microprocessor.numberOfCommands}'
                             </c:if>>
                         </div>
 
@@ -104,7 +93,7 @@
                                    placeholder="количество"
                                    required=""
                             <c:if test="${action == 'update'}">
-                                value='${microprocessor.numberOfElements}'
+                                   value='${microprocessor.numberOfElements}'
                             </c:if>>
                         </div>
 
@@ -114,7 +103,7 @@
                                    placeholder="год" required=""
                                    name="releaseYear"
                             <c:if test="${action == 'update'}">
-                                value='${microprocessor.releaseYear}'
+                                   value='${microprocessor.releaseYear}'
                             </c:if>>
                         </div>
 
